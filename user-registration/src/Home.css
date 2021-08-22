@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container{
+    max-width: 1600px;
+    margin: auto;
+    padding: 40px;
+    background-color: rgb(235, 235, 235);
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 26px;
+    column-gap: 26px;
+}
