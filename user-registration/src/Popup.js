@@ -21,9 +21,6 @@ import React, { useState, useEffect } from 'react'
             desc: data.desc,
             phone: data.phone,
 
-
-
-        setPopup(false)
     }
 }
 
