@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import "./Home.css"
 
+// For fetching data
+import axios from 'axios'
+
+import Card from './Card';
+
 const Home = () => {
 
     const [users, setUsers] = useState()
 
     useEffect(()=>{
+        axios.get('http://localhost:3000/users/read')
         .then(res => {
             setUsers(res.data)
         })
@@ -18,9 +24,9 @@ const Home = () => {
         <div>
             <div className="container">
                 {users && users.map(user => (
-                    <Card type="card" key='name'
-                    user='name' allusers='name'
-                    setUsers='type'/>
+                    <Card type="card" key={user._id}
+                    user={user} allusers={users}
+                    setUsers={setUsers}/>
                 ))}
 
                 <Card type="add" setUsers={setUsers}/>
