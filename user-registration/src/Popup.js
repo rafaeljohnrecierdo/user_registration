@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 
 import axios from 'axios'
 
-const socket = io('http://localhost:5000/');
+const socket = io('http://localhost:3000/');
 
 const Popup = ({ setPopup, user, setUsers, setCardUser }) => {
 
