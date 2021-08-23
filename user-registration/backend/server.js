@@ -8,7 +8,7 @@ import  * as io from 'socket.io'
 const app = express();
 app.use(express.json());
 app.use(cors());
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const server = createServer(app)
 server.listen(port, () => console.log(`Server is running at ${port}........`))
 app.get("/",(req,res) => res.send("Hurray! server is running..."))
@@ -16,7 +16,7 @@ app.get("/",(req,res) => res.send("Hurray! server is running..."))
 
 
 
-const url = "mongodb+srv://debjit:k9cgewsiZCmYKa8U@cluster0.u7g8u.mongodb.net/userDB?retryWrites=true&w=majority";
+const url = "localhost:27017";
 mongoose.connect(url,{
     useNewUrlParser: true,
     useCreateIndex: true,
