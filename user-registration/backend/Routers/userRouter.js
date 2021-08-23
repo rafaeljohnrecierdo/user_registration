@@ -13,7 +13,13 @@ userRouter.post(
             phone: req.body.phone
         }
 
-        
+        const user = new User(data);
+
+        try {
+            await user.save();
+        } catch (error) {
+            console.log(error)
+        }
 
     }
 )
