@@ -7,14 +7,7 @@ const userSchema = mongoose.Schema({
   email: String,
   mobile: String,
   sex: String,
-  religion: String,
-  civilStatus: String,
   birthday: Date,
-  birthplace: String,
-  height: String,
-  weight: String,
-  mother: String,
-  father: String,
 });
 
 const User = mongoose.model('User', userSchema);

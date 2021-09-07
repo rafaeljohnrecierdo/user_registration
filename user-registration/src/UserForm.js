@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { religionOptions, civilStatusOptions } from './lists';
 
 export const UserForm = ({ user, onSubmit }) => {
   const { register, handleSubmit } = useForm({
@@ -16,10 +15,6 @@ export const UserForm = ({ user, onSubmit }) => {
         new Date(user?.birthday).toLocaleDateString('en-CA') ||
         Date.now().toLocaleDateString('en-CA'),
       birthplace: user?.birthplace || '',
-      height: user?.height || '',
-      weight: user?.weight || '',
-      mother: user?.mother || '',
-      father: user?.father || '',
     },
   });
 
@@ -36,7 +31,7 @@ export const UserForm = ({ user, onSubmit }) => {
           </label>
           <input
             className="form-control"
-            placeholder="First name"
+            placeholder=""
             {...register('firstName', { required: true })}
             type="text"
             name="firstName"
@@ -45,11 +40,11 @@ export const UserForm = ({ user, onSubmit }) => {
         </div>
         <div className="col">
           <label htmlFor="middleName" className="form-label">
-            Middle Name
+            Middle Initial
           </label>
           <input
             className="form-control"
-            placeholder="Middle name"
+            placeholder=""
             {...register('middleName')}
             type="text"
             name="middleName"
@@ -62,7 +57,7 @@ export const UserForm = ({ user, onSubmit }) => {
           </label>
           <input
             className="form-control"
-            placeholder="Last Name"
+            placeholder=""
             {...register('lastName', { required: true })}
             type="text"
             name="lastName"
@@ -78,7 +73,7 @@ export const UserForm = ({ user, onSubmit }) => {
           </label>
           <input
             className="form-control"
-            placeholder="johndoe@domain.tld"
+            placeholder=""
             {...register('email', { required: true })}
             type="email"
             name="email"
@@ -98,9 +93,7 @@ export const UserForm = ({ user, onSubmit }) => {
             id="mobile"
           />
         </div>
-      </div>
-      <hr />
-      <div className="row">
+
         <div className="col">
           <label htmlFor="sex" className="form-label">
             Sex
@@ -139,142 +132,34 @@ export const UserForm = ({ user, onSubmit }) => {
             </div>
           </div>
         </div>
+
         <div className="col">
-          <label htmlFor="religion" className="form-label">
-            Religion
-          </label>
-          <select
-            className="form-select"
-            name="religion"
-            {...register('religion')}
-          >
-            {religionOptions.map((religion) => (
-              <option
-                value={religion.value}
-                selected={religion.value === user?.religion}
-              >
-                {religion.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="col">
-          <label htmlFor="civilStatus" className="form-label">
-            Civil Status
-          </label>
-          <select
-            className="form-select"
-            name="civilStatus"
-            {...register('civilStatus')}
-          >
-            {civilStatusOptions.map((civilStatus) => (
-              <option
-                value={civilStatus.value}
-                selected={civilStatus.value === user?.civilStatus}
-              >
-                {civilStatus.label}
-              </option>
-            ))}
-          </select>
+          <div className="col">
+            <label htmlFor="birthday" className="form-label">
+              Birthday
+            </label>
+            <input
+              className="form-control"
+              {...register('birthday', { required: true })}
+              type="date"
+              name="birthday"
+              id="birthday"
+              required
+            />
+          </div>
         </div>
       </div>
       <hr />
 
-      <div className="row">
-        <div className="col">
-          <label htmlFor="birthday" className="form-label">
-            Birthday
-          </label>
-          <input
-            className="form-control"
-            {...register('birthday', { required: true })}
-            type="date"
-            name="birthday"
-            id="birthday"
-            required
-          />
-        </div>
-        <div className="col">
-          <label htmlFor="birthplace" className="form-label">
-            Birthplace
-          </label>
-          <input
-            className="form-control"
-            placeholder="Manila"
-            {...register('birthplace', { required: true })}
-            type="text"
-            name="birthplace"
-            id="birthplace"
-          />
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col">
-          <label htmlFor="height" className="form-label">
-            Height (cm)
-          </label>
-          <input
-            className="form-control"
-            placeholder="150"
-            {...register('height', { required: true })}
-            type="number"
-            name="height"
-            id="height"
-          />
-        </div>
-        <div className="col">
-          <label htmlFor="weight" className="form-label">
-            Weight (kg)
-          </label>
-          <input
-            className="form-control"
-            placeholder="50"
-            {...register('weight', { required: true })}
-            type="number"
-            name="weight"
-            id="weight"
-          />
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col">
-          <label htmlFor="mother" className="form-label">
-            Mother
-          </label>
-          <input
-            className="form-control"
-            placeholder="Manila"
-            {...register('mother', { required: true })}
-            type="text"
-            name="mother"
-            id="mother"
-          />
-        </div>
-        <div className="col">
-          <label htmlFor="father" className="form-label">
-            Father
-          </label>
-          <input
-            className="form-control"
-            placeholder="Manila"
-            {...register('father', { required: true })}
-            type="text"
-            name="father"
-            id="father"
-          />
-        </div>
-      </div>
       <div className="mt-4 mb-4">
-        <button className="btn btn-primary mr-3" type="submit">
+        <button className="btn btn-success mr-3" type="submit">
           Save User
         </button>
         &nbsp;
         <Link to="/">
           <input
             type="button"
-            className="btn btn-outline-primary"
+            className="btn btn-outline-dark"
             value="Cancel"
           />
         </Link>

@@ -23,8 +23,8 @@ export const UserTable = () => {
   return (
     <div className="container" style={{ overflowX: 'auto' }}>
       <div className="mt-3">
-        <h3>Users</h3>
-        <table className="table table-striped mt-3">
+        <h2>Registered Users</h2>
+        <table className="table table-bordered table-dark mt-3">
           <thead>
             <tr>
               <th>First Name</th>
@@ -33,14 +33,7 @@ export const UserTable = () => {
               <th>Email Address</th>
               <th>Mobile Number</th>
               <th>Sex</th>
-              <th>Religion</th>
-              <th>Civil Status</th>
               <th>Birthday</th>
-              <th>Birthplace</th>
-              <th>Height</th>
-              <th>Weight</th>
-              <th>Father</th>
-              <th>Mother</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -53,20 +46,13 @@ export const UserTable = () => {
                 <td>{user.email}</td>
                 <td>{user.mobile}</td>
                 <td>{user.sex}</td>
-                <td>{user.religion}</td>
-                <td>{user.civilStatus}</td>
                 <td>{user.birthday}</td>
-                <td>{user.birthplace}</td>
-                <td>{user.height}</td>
-                <td>{user.weight}</td>
-                <td>{user.father}</td>
-                <td>{user.mother}</td>
                 <td>
                   <Link to={`/${user._id}`}>
-                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-warning">Edit</button>
                   </Link>
                   <button
-                    class="btn btn-danger"
+                    class="btn btn-outline-danger"
                     onClick={() => deleteRow(user._id)}
                   >
                     Delete
